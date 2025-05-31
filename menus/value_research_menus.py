@@ -36,17 +36,17 @@ def research_value_on_disciplines_menu():
             print("Некоректний ввід. Спробуйте ще раз.")
         
     inputs = []
-    for m in range(times):
-        l = 1 if m * l_percentage == 0 else m * l_percentage
+    for m in range(1, times + 1):
+        l = 1 if int(m * l_percentage) == 0 else int(m * l_percentage)
         inputs.append(GeneratedInputProcessor(n, n_lower, n_upper, m, l).process())
-        
-    greedy_outputs = []
-    for input_data in inputs:
-        greedy_outputs.append(s_calculate(greedy_algorithm(input_data), input_data.students))
         
     gale_shapley_outputs = []
     for input_data in inputs:
-        greedy_outputs.append(s_calculate(gale_shapley_algorithm(input_data), input_data.students))
+        gale_shapley_outputs.append(s_calculate(gale_shapley_algorithm(input_data.copy()), input_data.students))
+        
+    greedy_outputs = []
+    for input_data in inputs:
+        greedy_outputs.append(s_calculate(greedy_algorithm(input_data.copy()), input_data.students))
         
     return greedy_outputs, gale_shapley_outputs
 
@@ -100,15 +100,15 @@ def research_value_on_students_menu():
             print("Некоректний ввід. Спробуйте ще раз.")
         
     inputs = []
-    for n in range(times):
+    for n in range(1, times + 1):
         inputs.append(GeneratedInputProcessor(n, n_lower, n_upper, m, l).process())
-        
-    greedy_outputs = []
-    for input_data in inputs:
-        greedy_outputs.append(s_calculate(greedy_algorithm(input_data), input_data.students))
         
     gale_shapley_outputs = []
     for input_data in inputs:
-        greedy_outputs.append(s_calculate(gale_shapley_algorithm(input_data), input_data.students))
+        gale_shapley_outputs.append(s_calculate(gale_shapley_algorithm(input_data.copy()), input_data.students))
+        
+    greedy_outputs = []
+    for input_data in inputs:
+        greedy_outputs.append(s_calculate(greedy_algorithm(input_data.copy()), input_data.students))
         
     return greedy_outputs, gale_shapley_outputs
