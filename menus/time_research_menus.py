@@ -1,3 +1,4 @@
+from algs.gale_shapley import gale_shapley_algorithm
 from algs.greedy import greedy_algorithm
 from services.generated_input_processor import GeneratedInputProcessor
 import time
@@ -35,21 +36,21 @@ def research_time_on_disciplines_menu():
             print("Некоректний ввід. Спробуйте ще раз.")
         
     inputs = []
-    for m in range(times):
-        l = 1 if m * l_percentage == 0 else m * l_percentage
+    for m in range(1, times + 1):
+        l = 1 if int(m * l_percentage) == 0 else int(m * l_percentage)
         inputs.append(GeneratedInputProcessor(n, n_lower, n_upper, m, l).process())
-        
-    greedy_outputs = []
-    for input_data in inputs:
-        start_time = time.time()
-        result = greedy_algorithm(input_data)
-        elapsed_time = time.time() - start_time
-        greedy_outputs.append(elapsed_time)
         
     gale_shapley_outputs = []
     for input_data in inputs:
         start_time = time.time()
-        result = gale_shapley_outputs(input_data)
+        gale_shapley_algorithm(input_data.copy())
+        elapsed_time = time.time() - start_time
+        gale_shapley_outputs.append(elapsed_time)
+        
+    greedy_outputs = []
+    for input_data in inputs:
+        start_time = time.time()
+        greedy_algorithm(input_data.copy())
         elapsed_time = time.time() - start_time
         greedy_outputs.append(elapsed_time)
         
@@ -105,20 +106,20 @@ def research_time_on_students_menu():
             print("Некоректний ввід. Спробуйте ще раз.")
         
     inputs = []
-    for n in range(times):
+    for n in range(1, times + 1):
         inputs.append(GeneratedInputProcessor(n, n_lower, n_upper, m, l).process())
-        
-    greedy_outputs = []
-    for input_data in inputs:
-        start_time = time.time()
-        result = greedy_algorithm(input_data)
-        elapsed_time = time.time() - start_time
-        greedy_outputs.append(elapsed_time)
         
     gale_shapley_outputs = []
     for input_data in inputs:
         start_time = time.time()
-        result = gale_shapley_outputs(input_data)
+        gale_shapley_algorithm(input_data.copy())
+        elapsed_time = time.time() - start_time
+        gale_shapley_outputs.append(elapsed_time)
+        
+    greedy_outputs = []
+    for input_data in inputs:
+        start_time = time.time()
+        greedy_algorithm(input_data.copy())
         elapsed_time = time.time() - start_time
         greedy_outputs.append(elapsed_time)
         
