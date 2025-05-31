@@ -1,4 +1,5 @@
 from controls import Menu, Option
+from menus.experiments_menu import experiments_menu
 from menus.is_menu import is_menu
 
 
@@ -7,7 +8,7 @@ def main_menu():
         "Головне меню",
         [
             Option("1: Розв'язок IC", "1", action=is_menu),
-            Option("2: Експерименти", "2", action=lambda: None),
+            Option("2: Експерименти", "2", action=experiments_menu),
             Option("0: Вийти", "0", action=lambda: None),
         ],
     )
