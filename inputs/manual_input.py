@@ -23,9 +23,9 @@ def manual_input():
                 print("Некоректний ввід. Спробуйте ще раз.")
                 
         wishlists = []
-        for item in students:
+        for stud_id, _ in enumerate(students):
             while True:
-                print(f"Перелічіть побажання студента №1 {students.index(item) + 1}")
+                print(f"Перелічіть побажання студента №{stud_id + 1}")
                 print("(Формат - ##, #, ..., ##; # - Цифра, побажання не можуть півторюватись та бути більше ніж дисциплін):")
                 input_str = input()
                 try:

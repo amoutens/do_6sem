@@ -3,12 +3,13 @@ from objects.InputData import InputData
 
 
 def greedy_algorithm(input_data: InputData) -> List[List[int]]:
-    x = []
+    x = [[0 for _ in range(len(input_data.students))] for _ in range(len(input_data.discipline_capacities))]
     
     sorted_students = sorted(
-        input_data.students.keys(), 
-        key=lambda stud: input_data.students[stud], 
-        reverse=True)
+        range(len(input_data.students)),  
+        key=lambda i: input_data.students[i],
+        reverse=True
+    )
 
     for student in sorted_students:
         lfd = {'p': None, 'Q': 0}

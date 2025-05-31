@@ -30,9 +30,9 @@ class Menu():
             key = input()
             if key in [option.key for option in self.options]:
                 return key
+            print("Invalid option. Please try again.")
     
     def useOption(self, key: str):
-        for option in self.options.values():
+        for option in self.options:
             if option.key == key:
-                option.action()
-                break
+                return option.action()

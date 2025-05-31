@@ -63,7 +63,7 @@ def generated_input():
     
     students = [random.randint(n_lower, n_upper) for _ in range(n)]
 
-    discipline_capacities = []
+    discipline_capacities = [0 for _ in range(m)]
     for _ in range(int(n * 1.25)):
         discipline_capacities[random.randint(0, m - 1)] += 1
 
