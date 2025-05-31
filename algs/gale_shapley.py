@@ -10,8 +10,8 @@ def gale_shapley_algorithm(input_data: InputData) -> List[List[int]]:
     H = {i: [] for i in range(m)}
     overflow = [False for _ in range(m)]
 
-    wishlists = {s: list(input_data.wishlists[s]) for s in input_data.students}
-    queue = list(input_data.students.keys())
+    wishlists = {i: list(input_data.wishlists[i]) for i in range(len(input_data.students))}
+    queue = list(range(len(input_data.students)))
 
     while queue:
         student = queue.pop(0)
