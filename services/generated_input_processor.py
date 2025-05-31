@@ -18,5 +18,5 @@ class GeneratedInputProcessor:
         for _ in range(int(self.n * 1.25)):
             discipline_capacities[random.randint(0, self.m - 1)] += 1
 
-        wishlists = [random.sample(range(self.m), random.randint(1, self.l)) for _ in range(n)]
+        wishlists = [random.sample(range(self.m), random.randint(1, self.l)) for _ in range(self.n)]
         return InputData(students, discipline_capacities, wishlists)

@@ -14,7 +14,7 @@ def manual_input():
         
         discipline_capacities = []
         while True:
-            print("Перелічіть вмістимості дисциплін (Формат - ##, #, ..., ###; # - Цифра):")
+            print("Перелічіть кількість місць на кожній дисципліні (Формат - ##, #, ..., ###; # - Цифра):")
             input_str = input()
             try:
                 discipline_capacities = [int(s.strip()) for s in input_str.split(',')]
