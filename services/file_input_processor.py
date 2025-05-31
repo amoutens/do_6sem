@@ -27,8 +27,8 @@ class FileInputProcessor:
 
     def __preprocess(self):
         discipline_capacities = self.raw_disciplines
-        students = {idx: rating for idx, rating, _ in self.raw_students}
-        wishlists = {idx: wishlist for idx, _, wishlist in self.raw_students}
+        students = {idx-1: rating for idx, rating, _ in self.raw_students}
+        wishlists = {idx-1: wishlist for idx, _, wishlist in self.raw_students}
         return InputData(
             students=students,
             discipline_capacities=discipline_capacities,
