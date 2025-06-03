@@ -7,7 +7,7 @@ def main_menu():
     main_menu = Menu(
         "Головне меню",
         [
-            Option("1: Розв'язок IC", "1", action=is_menu),
+            Option("1: Розв'язок IЗ", "1", action=is_menu),
             Option("2: Експерименти", "2", action=experiments_menu),
             Option("0: Вийти", "0", action=lambda: None),
         ],
